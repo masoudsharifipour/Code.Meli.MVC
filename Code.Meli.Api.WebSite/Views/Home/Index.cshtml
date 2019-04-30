@@ -1,0 +1,22 @@
+﻿@model Code.Meli.Api.WebSite.Models.CodeHistory
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("GetValidation", "Home", FormMethod.Post))
+{
+    <input type="text" id="value" name="value" />
+    <input type="submit" value="بزن ببینمم چی میگه" />
+}
+
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div> 
+
+
+
+
+
