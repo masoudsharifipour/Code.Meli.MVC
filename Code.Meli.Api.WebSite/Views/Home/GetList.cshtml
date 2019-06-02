@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Code.Meli.Api.WebSite.Models.CodeHistory>
+
+@{
+    ViewBag.Title = "لیست درخواست ها";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="font-family:IRANSansWeb">نمایش لیست درخواست صحت عملکرد کد ملی</h2>
+
+<hr />
+<table class="table table-bordered table-condensed table-responsive table-hover" >
+    <tr>
+        <th>
+            کد ملی
+        </th>
+        <th>
+            آی پی
+        </th>
+        <th>
+            تاریخ درخواست
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDateTime)
+            </td>
+        </tr>
+    }
+
+</table>

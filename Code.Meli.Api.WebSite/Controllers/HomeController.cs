@@ -44,5 +44,13 @@ namespace Code.Meli.Api.WebSite.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult GetList()
+        {
+            var result = this._service.GetList();
+
+            return View(result);
+        }
     }
 }

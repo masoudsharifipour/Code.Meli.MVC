@@ -10,5 +10,6 @@ namespace Code.Meli.Api.WebSite.Models.Service
         bool IsValidIranianNationalCode(string value);
 
         void Add(CodeHistory codeHistory);
+        IEnumerable<CodeHistory> GetList();
     }
 }

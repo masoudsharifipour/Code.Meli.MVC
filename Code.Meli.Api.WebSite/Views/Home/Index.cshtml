@@ -1,20 +1,40 @@
 ﻿@model Code.Meli.Api.WebSite.Models.CodeHistory
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "صفحه اصلی";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2 style="font-family:IRANSansWeb">بررسی صحبت درست بودن کد ملی</h2>
+<hr />
 @using (Html.BeginForm("GetValidation", "Home", FormMethod.Post))
 {
-    <input type="text" id="value" name="value" />
-    <input type="submit" value="بزن ببینمم چی میگه" />
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            کد ملی وارد کنید
+            <div class="pull-left">
+                <a href="/Home/GetList" class="btn btn-danger btn-xs">نمایش لیست</a>
+            </div>
+        </div>
+    
+        <div class="panel-body">
+            <div class="form-group">
+                <input type="text" class="form-control" id="value" name="value" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="بزن ببینمم چی میگه" />
+            </div>
+
+        </div>
+
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    </div>
+
 }
 
-    <div class="alert alert-success">
-        @TempData["Message"]
-    </div> 
+
 
 
 

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\m.sharifipoor\source\repos\Code.Meli.Api.WebSite\Code.Meli.Api.WebSite\Models\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\Project\Code.Meli.MVC\Code.Meli.Api.WebSite\Models\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

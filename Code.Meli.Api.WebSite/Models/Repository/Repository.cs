@@ -14,7 +14,8 @@ namespace Code.Meli.Api.WebSite.Models.Repository
 
         public void Add(T entity)
         {
-            this._db.Set<T>().Add(entity);
+           var result   =  this._db.Set<T>().Add(entity);
+            _db.SaveChanges();
         }
 
         public IEnumerable<T> GetAll()

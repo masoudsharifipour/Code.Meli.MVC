@@ -40,10 +40,15 @@ namespace Code.Meli.Api.WebSite.Models.Service
             {
                 Code = value,
                 CreatedDateTime = DateTime.Now,
-                Ip = Helper.IpAdress.GetLocalIPAddress(),
+                Ip = "123",
             });
             return (sum < 2 && check == sum) || (sum >= 2 && check + sum == 11);
 
+        }
+
+        public IEnumerable<CodeHistory> GetList()
+        {
+            return this._uow.HistoryCodeRepository.GetAll();
         }
     }
 }

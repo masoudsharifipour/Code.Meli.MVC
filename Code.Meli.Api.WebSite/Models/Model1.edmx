@@ -4,35 +4,36 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CodeMeliModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="CodeHistory">
+      <Schema Namespace="CodeMeliModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CodeHistories">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Code" Type="nvarchar" MaxLength="50" />
           <Property Name="Ip" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedDateTime" Type="datetime" />
         </EntityType>
         <EntityContainer Name="CodeMeliModelStoreContainer">
-          <EntitySet Name="CodeHistory" EntityType="Self.CodeHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CodeHistories" EntityType="Self.CodeHistories" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CodeMeliModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="CodeMeliEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CodeHistories" EntityType="CodeMeliModel.CodeHistory" />
-        </EntityContainer>
         <EntityType Name="CodeHistory">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityContainer Name="CodeMeliEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CodeHistories" EntityType="Self.CodeHistory" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -41,11 +42,11 @@
         <EntityContainerMapping StorageEntityContainer="CodeMeliModelStoreContainer" CdmEntityContainer="CodeMeliEntities">
           <EntitySetMapping Name="CodeHistories">
             <EntityTypeMapping TypeName="CodeMeliModel.CodeHistory">
-              <MappingFragment StoreEntitySet="CodeHistory">
-                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
-                <ScalarProperty Name="Ip" ColumnName="Ip" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
+              <MappingFragment StoreEntitySet="CodeHistories">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

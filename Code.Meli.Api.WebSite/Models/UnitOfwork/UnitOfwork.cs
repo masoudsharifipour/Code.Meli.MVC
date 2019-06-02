@@ -9,7 +9,7 @@ namespace Code.Meli.Api.WebSite.Models.UnitOfwork
     public class UnitOfwork : IUnitOfwork
     {
         Models.CodeMeliEntities _db = new CodeMeliEntities();
-        private Repository<CodeHistory> _codeHistory;
+        private  Repository<CodeHistory> _codeHistory;
 
         public UnitOfwork()
         {
@@ -29,7 +29,7 @@ namespace Code.Meli.Api.WebSite.Models.UnitOfwork
 
         public void SaveChanges()
         {
-            this._db.SaveChanges();
+            var result = this._db.SaveChanges();
         }
     }
 }
